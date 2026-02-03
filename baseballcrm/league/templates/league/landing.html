@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Baseball CRM</title>
+</head>
+<body>
+    <h1>MLB Teams</h1>
+
+    <ul>
+        {% for team in teams %}
+            <li>{{ team.city }} {{ team.name }}</li>
+        {% empty %}
+            <li>No teams found</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
