@@ -6,7 +6,7 @@ class Team(models.Model):
     name = models.CharField(max_length=25)
     city = models.CharField(max_length=25)
     def __str__(self):
-        return f"{self.city} self.name"
+        return f"{self.city}"
     
 class Player(models.Model):
     name = models.CharField(max_length=100)
@@ -27,5 +27,13 @@ class Player(models.Model):
 
     position = models.CharField(max_length=2,
                                 choices=POSITIONS)
+    team = models.ForeignKey(
+        Team,
+        on_delete=models.CASCADE,
+        null = True,
+        blank=True,
+        related_name="players"
+    )
+
     def __str__(self):
         return f"{self.name}"
