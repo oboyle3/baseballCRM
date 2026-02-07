@@ -13,5 +13,17 @@
             <li>No teams found</li>
         {% endfor %}
     </ul>
+    <h1>Players</h1>
+    <ul>
+    {% for player in players %}
+        <li>{{ player.first_name }} 
+            {{ player.last_name }}
+            {{ player.position }}
+        </li>
+    {% empty %}
+        <li>No players found</li>
+    {% endfor %}
+    </ul>
+
 </body>
 </html>
