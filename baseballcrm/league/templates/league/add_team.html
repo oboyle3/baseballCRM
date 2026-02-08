@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>MLB CRM</title>
+  <title>Add team</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -86,39 +86,29 @@
 <body>
 
 <header>
-  <h2>MLB CRM</h2>
+  <h2>Add Team Screen</h2>
 </header>
 
 <section>
   <nav>
     <ul>
-      <li><a href="hello/">test</a></li>
-      <li><a href="add_team/">Add Team</a></li>
-      
+      <li><a href="/">home</a></li>
+      <li><a href="#"></a></li>
+      <li><a href="#"></a></li>
     </ul>
   </nav>
 
   <article>
-    <h1>Teams</h1>
-    <ul>
-      {% for team in teams %}
-        <li>{{ team.city }} {{ team.name }}</li>
-      {% empty %}
-        <li>No teams found</li>
-      {% endfor %}
-    </ul>
+    <h1>Add team</h1>
 
-    <h1>Players</h1>
-    <ul>
-      {% for player in players %}
-        <li>
-          {{ player.first_name }} {{ player.last_name }} —
-          {{ player.position }} ({{ player.team }}) ({{ player.batting_average }})
-        </li>
-      {% empty %}
-        <li>No players found</li>
-      {% endfor %}
-    </ul>
+  <form method="post">
+  {% csrf_token %}
+
+  <input type="text" name="city" placeholder="City">
+  <input type="text" name="name" placeholder="Team Name">
+
+  <button type="submit">Add Team</button>
+</form>
   </article>
 </section>
 

@@ -24,6 +24,12 @@ class Player(models.Model):
     ]
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
+    at_bats = models.PositiveIntegerField(default=0)
+    hits = models.PositiveIntegerField(default=0)
+    def batting_average(self):
+        if self.at_bats == 0:
+            return 0.00
+        return round(self.hits / self.at_bats, 3)
 
     position = models.CharField(max_length=2,
                                 choices=POSITIONS)
