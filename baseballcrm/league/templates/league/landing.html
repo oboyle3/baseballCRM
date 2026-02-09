@@ -94,12 +94,13 @@
     <ul>
       <li><a href="hello/">test</a></li>
       <li><a href="add_team/">Add Team</a></li>
+      <li><a href="admin/">Admin</a></li>
       
     </ul>
   </nav>
 
   <article>
-    <h1>Teams</h1>
+    <h1>Teams (MLB)</h1>
     <ul>
       {% for team in teams %}
         <li>{{ team.city }} {{ team.name }}</li>
@@ -118,6 +119,20 @@
       {% empty %}
         <li>No players found</li>
       {% endfor %}
+    </ul>
+    <h3>Teams (Minors)</h3>
+    <ul>
+        {%  for x in minor_teams %}
+        <li> {{  x.name  }} | {{x.city}}</li>
+        
+        {%  endfor %}
+    </ul>
+    <h3>Prospects (Minors)</h3>
+    <ul>
+        {%  for x in prospect %}
+        <li> {{  x.name  }} | {{x.position}}</li>
+        
+        {%  endfor %}
     </ul>
   </article>
 </section>

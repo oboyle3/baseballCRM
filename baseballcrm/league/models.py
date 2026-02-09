@@ -43,3 +43,29 @@ class Player(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+    
+
+class Minor(models.Model):
+    name = models.CharField(max_length=25)
+    city = models.CharField(max_length=25)
+    def __str__(self):
+        return f"{self.city}"
+    
+class Prospect(models.Model):
+    name = models.CharField(max_length=25)
+    POSITIONS = [
+        ("P", "Pitcher"),
+        ("C", "Catcher"),
+        ("1B", "First Base"),
+        ("2B", "Second Base"),
+        ("3B", "Third Base"),
+        ("SS", "Shortstop"),
+        ("LF", "Left Field"),
+        ("CF", "Center Field"),
+        ("RF", "Right Field"),
+        ("DH", "Designated Hitter"),
+    ]
+    position = models.CharField(max_length=2,
+                                choices=POSITIONS)
+    def __str__(self):
+        return f"{self.name} {self.position}"
