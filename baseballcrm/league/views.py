@@ -41,5 +41,25 @@ def add_team(request):
         "teams":teams})
 
 
+def player_comparison(request):
+    
+    players = Player.objects.all()
+    player1 = None
+    player2 = None
+    print(players)
+    if request.method == "POST":
+        p1_id = request.POST.get("player1")
+        p2_id = request.POST.get("player2")
+        if p1_id and p2_id:
+            player1 = Player.objects.get(id=p1_id)
+            player2 = Player.objects.get(id=p2_id)
+    context = {
+        
+        "players":players,
+        "player1": player1,
+        "player2": player2,
+        
+    }
+    return render(request, "league/player_comparison.html",context )
 
 
