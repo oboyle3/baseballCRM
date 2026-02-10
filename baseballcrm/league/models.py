@@ -69,3 +69,11 @@ class Prospect(models.Model):
                                 choices=POSITIONS)
     def __str__(self):
         return f"{self.name} {self.position}"
+    
+
+
+class Gaa_Team(models.Model):
+    name = models.CharField(max_length=25)
+    rating = models.IntegerField(default=50)
+    def __str__(self):
+        return f"{self.name}"
