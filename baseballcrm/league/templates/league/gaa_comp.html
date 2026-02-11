@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>MLB CRM</title>
+  <title>GAA CRM</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -86,7 +86,7 @@
 <body>
 
 <header>
-  <h2>MLB CRM</h2>
+  <h2>GAA CRM</h2>
 </header>
 
 <section>
@@ -95,56 +95,34 @@
       <li><a href="hello/">test</a></li>
       <li><a href="add_team/">Add Team</a></li>
       <li><a href="admin/">Admin</a></li>
-      <li><a href="player_comparison/">Player Comparison</a></li>
-      <li><a href="gaa_comp/">Gaa</a></li>
-
       
     </ul>
   </nav>
 
   <article>
-    <h1>Teams (MLB)</h1>
-    <ul>
-      {% for team in teams %}
-        <li>{{ team.city }} {{ team.name }}</li>
-      {% empty %}
-        <li>No teams found</li>
-      {% endfor %}
-    </ul>
-
-    <h1>Players</h1>
-    <ul>
-      {% for player in players %}
-        <li>
-          {{ player.first_name }} {{ player.last_name }} —
-          {{ player.position }} ({{ player.team }}) ({{ player.batting_average }})
-        </li>
-      {% empty %}
-        <li>No players found</li>
-      {% endfor %}
-    </ul>
-    <h3>Teams (Minors)</h3>
-    <ul>
-        {%  for x in minor_teams %}
-        <li> {{  x.name  }} | {{x.city}}</li>
-        
-        {%  endfor %}
-    </ul>
-    <h3>Prospects (Minors)</h3>
-    <ul>
-        {%  for x in prospect %}
-        <li> {{  x.name  }} | {{x.position}}</li>
-        
-        {%  endfor %}
-    </ul>
-    <h3>Gaa Teams</h3>
-    <ul>
-        {% for x in gaa_team %}
-        <li>{{x.name}} rating: {{x.rating}}</li>
+    <h1>GAA Player Comparison</h1>
+    <h3>Let a user: compare two teams</h3>
+    <form method="post">
+        {% csrf_token %}
+        <select name="Team1">
+            <option value="">Select team 1</option>
+            {% for x in gaa_team %}
+            <option value="{{x.id}}">
+                {{x.name}} {{x.rating}}
+            </option>
+            {% endfor %}
+        </select>
+        <select name="Team2">
+            <option value="">Select Team 2</option>
+                {% for x in gaa_team %}
+                <option value="{{ x.id }}">
+                {{ x.name }} {{ x.rating }}
+                </option>
         {% endfor %}
-    </ul>
-  </article>
-</section>
-
-</body>
-</html>
+  </select>
+  <button type="submit">Compare</button>
+    </form>
+  
+{% for x in gaa_team %}
+<ul>{{x.name}}</ul>
+{% endfor %}

@@ -65,3 +65,33 @@ def player_comparison(request):
     return render(request, "league/player_comparison.html",context )
 
 
+def gaa_comp(request):
+    gaa_team = Gaa_Team.objects.all()
+    team1 = None
+    team2 = None
+    winner = None
+    if request.method == "POST":
+        team1 = request.POST.get("Team1")
+        team2 = request.POST.get("Team2")
+        print(f"team1={team1} , team2={team2}")
+        if team1 and team2:
+            team1_obj = Gaa_Team.objects.get(id=team1)
+            team2_obj = Gaa_Team.objects.get(id=team2)
+            print(f"{team1_obj} vs. {team2_obj}")
+            if team1_obj.rating > team2_obj.rating:
+                winner = team1_obj
+                print(f"{team1_obj} is winner. congrats")
+
+            elif team2_obj.rating > team1_obj.rating:
+                winner = team2_obj
+                print(f"{team2_obj} is the winner I think")
+            else:
+                winner = "draw"
+
+    context = {    
+        "gaa_team":gaa_team,
+        "team1": team1_obj,
+        "team2": team2_obj,
+        "winner": winner,
+    }
+    return render(request, "league/gaa_comp.html",context )
