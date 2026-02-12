@@ -70,6 +70,8 @@ def gaa_comp(request):
     team1 = None
     team2 = None
     winner = None
+    team1_obj = None
+    team2_obj = None
     if request.method == "POST":
         team1 = request.POST.get("Team1")
         team2 = request.POST.get("Team2")
