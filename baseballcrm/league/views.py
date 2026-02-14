@@ -82,6 +82,8 @@ def gaa_comp(request):
             print(f"{team1_obj} vs. {team2_obj}")
             if team1_obj.rating > team2_obj.rating:
                 winner = team1_obj
+                print(f"{team1_obj.rating}  = team1_obj.rating")
+                print(f"{team2_obj.rating}  = team2_obj.rating")
                 print(f"{team1_obj} is winner. congrats")
 
             elif team2_obj.rating > team1_obj.rating:

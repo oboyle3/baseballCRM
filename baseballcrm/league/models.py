@@ -75,5 +75,7 @@ class Prospect(models.Model):
 class Gaa_Team(models.Model):
     name = models.CharField(max_length=25)
     rating = models.IntegerField(default=50)
+    wins = models.IntegerField(default=0)
+    losses = models.IntegerField(default=0)
     def __str__(self):
         return f"{self.name}"
