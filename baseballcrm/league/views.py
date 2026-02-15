@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Team, Player ,Minor, Prospect,Gaa_Team
+from .models import Team, Player ,Minor, Prospect,Gaa_Team, News
 from .forms import PlayerStatForm
 # Create your views here.
 def landing(request):
@@ -8,6 +8,7 @@ def landing(request):
     minor_teams = Minor.objects.all()
     prospect = Prospect.objects.all()
     gaa_team = Gaa_Team.objects.all()
+    news = News.objects.filter(is_active=True)[:5]
     print(players)
     print(minor_teams)
     context = {
@@ -16,6 +17,7 @@ def landing(request):
         "minor_teams": minor_teams,
         "prospect":prospect,
         "gaa_team":gaa_team,
+        "news": news,
     }
     return render(request, "league/landing.html",context )
 
@@ -48,7 +50,7 @@ def player_comparison(request):
     players = Player.objects.all()
     player1 = None
     player2 = None
-    print(players)
+    
     if request.method == "POST":
         p1_id = request.POST.get("player1")
         p2_id = request.POST.get("player2")

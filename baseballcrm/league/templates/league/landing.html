@@ -79,6 +79,31 @@
       nav, article {
         width: 100%;
       }
+      .article-container {
+  display: flex;
+  gap: 20px;
+}
+
+.main-content {
+  flex: 3;
+}
+
+.sidebar {
+  flex: 1;
+  background-color: #f3f4f6;
+  padding: 15px;
+  border-left: 2px solid #e5e7eb;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+}
+
+.news-item {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
     }
   </style>
 </head>
@@ -101,6 +126,20 @@
       
     </ul>
   </nav>
+  <!-- RIGHT SIDE (Sidebar News) -->
+    <div class="sidebar">
+  <h3>📰 Around the League</h3>
+
+  {% for item in news %}
+    <div class="news-item">
+      <strong>{{ item.title }}</strong><br>
+      <small>{{ item.created_at|date:"M d, Y" }}</small>
+      <p>{{ item.content|truncatewords:15 }}</p>
+    </div>
+  {% empty %}
+    <p>No news available</p>
+  {% endfor %}
+</div>
 
   <article>
     <h1>Teams (MLB)</h1>
