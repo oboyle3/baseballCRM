@@ -121,7 +121,8 @@
       <li><a href="add_team/">Add Team</a></li>
       <li><a href="admin/">Admin</a></li>
       <li><a href="player_comparison/">Player Comparison</a></li>
-      <li><a href="gaa_comp/">Gaa</a></li>
+      <li><a href="testing_Screen/">testing_Screen</a></li>
+
 
       
     </ul>
@@ -182,6 +183,15 @@
         <li>{{x.name}} rating: {{x.rating}}</li>
         {% endfor %}
     </ul>
+    <h4>NCAA Conferences</h4>
+    {% for x in conference %}
+    <li>{{x.conference_name}} </li>
+    {% endfor %}
+    
+    <h6>ncaa teams and there conferance</h6>
+    {% for x in ncaa_teams %}
+    <li>{{x.team_name}} | and conf {{x.conference_name}} </li>
+    {% endfor %}
   </article>
 </section>
 

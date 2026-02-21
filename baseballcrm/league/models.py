@@ -93,3 +93,57 @@ class News(models.Model):
 
     class Meta:
         ordering = ["-created_at"]
+
+
+class Conference(models.Model):
+    conference_name = models.CharField(max_length = 100)
+    def __str__(self):
+        return self.conference_name
+    
+class NCAA_TEAM(models.Model):
+    team_name = models.CharField(max_length=100)
+    conference_name = models.ForeignKey(
+        Conference,
+        on_delete=models.CASCADE,
+        null = True,
+        blank=True,
+        related_name="conference_assigned"
+    )
+    def __str__(self):
+        return self.team_name
+
+class NCAA_Player(models.Model):
+    first = models.CharField(max_length=100)
+    last = models.CharField(max_length=100)
+    GP = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    GS = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    TOT = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    FT = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    AVG = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    FGM = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    FGA = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    FG_PERCENT = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    Three_PT = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    Three_PTA = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    Three_PT_PERCENT = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    FTA = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    FT_PERCENT = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    PTS = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    AVG = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    def __str__(self):
+        return f"{self.first} {self.last}"
+    
+class Stock(models.Model):
+    company = models.CharField(max_length=100)
+    total_shares = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    price = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+    def __str__(self):
+        return f"{self.company}"
+
+class User(models.Model):
+    name = models.CharField(max_length=100)
+    def __str__(self):
+        return f"{self.name}"
+    
+
+    

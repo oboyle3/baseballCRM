@@ -1,6 +1,6 @@
-from django.shortcuts import render
-from .models import Team, Player ,Minor, Prospect,Gaa_Team, News
-from .forms import PlayerStatForm
+from django.shortcuts import redirect, render
+from .models import Team, Player ,Minor, Prospect,Gaa_Team, News, Conference, NCAA_TEAM, NCAA_Player, Stock
+from .forms import Stockform
 # Create your views here.
 def landing(request):
     teams = Team.objects.all()
@@ -8,6 +8,8 @@ def landing(request):
     minor_teams = Minor.objects.all()
     prospect = Prospect.objects.all()
     gaa_team = Gaa_Team.objects.all()
+    conference = Conference.objects.all()
+    ncaa_teams = NCAA_TEAM.objects.all()
     news = News.objects.filter(is_active=True)[:5]
     print(players)
     print(minor_teams)
@@ -18,6 +20,8 @@ def landing(request):
         "prospect":prospect,
         "gaa_team":gaa_team,
         "news": news,
+        "conference": conference,
+        "ncaa_teams": ncaa_teams,
     }
     return render(request, "league/landing.html",context )
 
@@ -74,11 +78,13 @@ def gaa_comp(request):
     winner = None
     team1_obj = None
     team2_obj = None
+    counter = 0
     if request.method == "POST":
         team1 = request.POST.get("Team1")
         team2 = request.POST.get("Team2")
         print(f"team1={team1} , team2={team2}")
         if team1 and team2:
+            counter = counter + 1
             team1_obj = Gaa_Team.objects.get(id=team1)
             team2_obj = Gaa_Team.objects.get(id=team2)
             print(f"{team1_obj} vs. {team2_obj}")
@@ -101,3 +107,22 @@ def gaa_comp(request):
         "winner": winner,
     }
     return render(request, "league/gaa_comp.html",context )
+
+
+def testing_Screen(request):
+    if request.method == "POST":
+        form = Stockform(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("landing")
+    else:
+        form = Stockform()
+    counter = 0
+    stock = Stock.objects.all()
+    print(stock)
+    context = {    
+        "stock":stock,
+        "form": form,
+        
+    }
+    return render(request, "league/testing_Screen.html",context )

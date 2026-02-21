@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>testing screen</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f5f5f5;
+    }
+
+    header {
+      background-color: #1f2937;
+      padding: 16px;
+      text-align: center;
+      color: white;
+    }
+
+    section {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    nav {
+      width: 25%;
+      background: #e5e7eb;
+      padding: 20px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav li {
+      margin-bottom: 10px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #111827;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    article {
+      width: 75%;
+      padding: 20px;
+      background-color: #ffffff;
+    }
+
+    h1 {
+      margin-top: 0;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    @media (max-width: 768px) {
+      section {
+        flex-direction: column;
+      }
+
+      nav, article {
+        width: 100%;
+      }
+      .article-container {
+  display: flex;
+  gap: 20px;
+}
+
+.main-content {
+  flex: 3;
+}
+
+.sidebar {
+  flex: 1;
+  background-color: #f3f4f6;
+  padding: 15px;
+  border-left: 2px solid #e5e7eb;
+}
+
+.sidebar h3 {
+  margin-top: 0;
+}
+
+.news-item {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h2>testing screen</h2>
+</header>
+
+<section>
+  <nav>
+    <ul>
+      
+      <li><a href="http://127.0.0.1:8000/">Home</a></li>
+      <li><a href="admin/">Admin</a></li>
+      
+
+
+      
+    </ul>
+  </nav>
+  
+   
+
+  <article>
+    <h1>Stock</h1>
+{% for x in stock %}
+<li>{{x.company}} | price {{x.price}} | {{x.total_shares}}
+   
+
+
+</li>
+{% endfor %}
+<h2>Create Stock</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+    
+</section>
+
+</body>
+</html>
