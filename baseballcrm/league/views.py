@@ -1,6 +1,8 @@
 from django.shortcuts import redirect, render
 from .models import Team, Player ,Minor, Prospect,Gaa_Team, News, Conference, NCAA_TEAM, NCAA_Player, Stock
 from .forms import Stockform
+import pandas as pd
+from django.shortcuts import render
 # Create your views here.
 def landing(request):
     teams = Team.objects.all()
@@ -11,6 +13,10 @@ def landing(request):
     conference = Conference.objects.all()
     ncaa_teams = NCAA_TEAM.objects.all()
     news = News.objects.filter(is_active=True)[:5]
+    df = pd.read_excel("players.xlsx")
+    players = df["Players_Name"].tolist()
+    made_no_dribble = df["Threes_Made_No_Dribble_Before_Shot"].tolist()
+    made_yes_dribble = df["Threes_Made_Yes_Dribble_Before_Shot"].tolist()
     print(players)
     print(minor_teams)
     context = {
@@ -22,6 +28,9 @@ def landing(request):
         "news": news,
         "conference": conference,
         "ncaa_teams": ncaa_teams,
+        "players": players,
+        "made_no_dribble": made_no_dribble,
+        "made_yes_dribble": made_yes_dribble,
     }
     return render(request, "league/landing.html",context )
 
