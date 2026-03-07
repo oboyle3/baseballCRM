@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>MLB CRM</title>
+  <title>test template</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -111,7 +111,7 @@
 <body>
 
 <header>
-  <h2>MLB CRM</h2>
+  <h2>Test tempate</h2>
 </header>
 
 <section>
@@ -124,27 +124,12 @@
       <li><a href="testing_Screen/">testing_Screen</a></li>
       <li><a href="upload_excel/">EXCEL</a></li>
       
-      <li><a href="upload_portfolio/">upload_upload_portfolio</a></li>
-      
 
 
       
     </ul>
   </nav>
-  <!-- RIGHT SIDE (Sidebar News) -->
-    <div class="sidebar">
-  <h3>📰 Around the League</h3>
-
-  {% for item in news %}
-    <div class="news-item">
-      <strong>{{ item.title }}</strong><br>
-      <small>{{ item.created_at|date:"M d, Y" }}</small>
-      <p>{{ item.content|truncatewords:15 }}</p>
-    </div>
-  {% empty %}
-    <p>No news available</p>
-  {% endfor %}
-</div>
+  
 
   <article>
     <h1>Teams (MLB)</h1>

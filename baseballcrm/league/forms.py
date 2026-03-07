@@ -1,6 +1,7 @@
 
 from django import forms
 from .models import Player, Stock
+from .models import ExcelUpload
 
 
 #goal = make a model form for the below model
@@ -17,3 +18,9 @@ class Stockform(forms.ModelForm): # forms.ModelForm is used to automatatacally c
     class Meta:
         model = Stock
         fields = ['company', 'total_shares', 'price']
+
+
+class UploadFileForm(forms.ModelForm):
+    class Meta:
+        model = ExcelUpload
+        fields = ['file']

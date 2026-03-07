@@ -1,7 +1,13 @@
+{% load static %}
+
+
+
+
+000000000000000000000000000000000000000000000000000000000000
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>MLB CRM</title>
+  <title>test template</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -111,7 +117,7 @@
 <body>
 
 <header>
-  <h2>MLB CRM</h2>
+  <h2>Test tempate</h2>
 </header>
 
 <section>
@@ -124,78 +130,33 @@
       <li><a href="testing_Screen/">testing_Screen</a></li>
       <li><a href="upload_excel/">EXCEL</a></li>
       
-      <li><a href="upload_portfolio/">upload_upload_portfolio</a></li>
-      
 
 
       
     </ul>
   </nav>
-  <!-- RIGHT SIDE (Sidebar News) -->
-    <div class="sidebar">
-  <h3>📰 Around the League</h3>
-
-  {% for item in news %}
-    <div class="news-item">
-      <strong>{{ item.title }}</strong><br>
-      <small>{{ item.created_at|date:"M d, Y" }}</small>
-      <p>{{ item.content|truncatewords:15 }}</p>
-    </div>
-  {% empty %}
-    <p>No news available</p>
-  {% endfor %}
-</div>
+  
 
   <article>
-    <h1>Teams (MLB)</h1>
-    <ul>
-      {% for team in teams %}
-        <li>{{ team.city }} {{ team.name }}</li>
-      {% empty %}
-        <li>No teams found</li>
-      {% endfor %}
-    </ul>
-
-    <h1>Players</h1>
-    <ul>
-      {% for player in players %}
-        <li>
-          {{ player.first_name }} {{ player.last_name }} —
-          {{ player.position }} ({{ player.team }}) ({{ player.batting_average }})
-        </li>
-      {% empty %}
-        <li>No players found</li>
-      {% endfor %}
-    </ul>
-    <h3>Teams (Minors)</h3>
-    <ul>
-        {%  for x in minor_teams %}
-        <li> {{  x.name  }} | {{x.city}}</li>
-        
-        {%  endfor %}
-    </ul>
-    <h3>Prospects (Minors)</h3>
-    <ul>
-        {%  for x in prospect %}
-        <li> {{  x.name  }} | {{x.position}}</li>
-        
-        {%  endfor %}
-    </ul>
-    <h3>Gaa Teams</h3>
-    <ul>
-        {% for x in gaa_team %}
-        <li>{{x.name}} rating: {{x.rating}}</li>
-        {% endfor %}
-    </ul>
-    <h4>NCAA Conferences</h4>
-    {% for x in conference %}
-    <li>{{x.conference_name}} </li>
-    {% endfor %}
+   
+   
+   
+   
     
-    <h6>ncaa teams and there conferance</h6>
-    {% for x in ncaa_teams %}
-    <li>{{x.team_name}} | and conf {{x.conference_name}} </li>
-    {% endfor %}
+    <h6>test heading 6</h6>
+    <h2>Upload Excel File</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Upload</button>
+</form>
+
+{% if chart %}
+<h3>Your Chart</h3>
+<img src="{% static 'chart.png' %}">
+{% endif %}
+   
   </article>
 </section>
 
