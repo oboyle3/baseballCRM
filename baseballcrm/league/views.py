@@ -9,6 +9,7 @@ from django.shortcuts import render
 from .forms import UploadFileForm
 import numpy as np
 import os
+import yfinance as yf
 # Create your views here.
 def landing(request):
     teams = Team.objects.all()
@@ -247,3 +248,27 @@ def upload_portfolio(request):
         "total_profit": total_profit,
         "table_data": table_data
     })
+
+
+
+
+def yfinance(request):
+    # Pick a stock ticker
+    ticker_symbol = "AAPL"
+    print(f"ticker symbol: {ticker_symbol}")
+    # Create a Ticker object
+    stock = yf.Ticker(ticker_symbol)
+    print(f"yf ticker selected: {stock}")
+    # Get the latest closing price
+    data = stock.history(period="1d")
+    print(f"yf data : {data}")
+    current_price = data["Close"].iloc[-1]
+    # print(f"yf current_pric : {current_price}")
+
+    # Prepare context for template
+    context = {
+        "ticker": ticker_symbol,
+        "current_price": current_price
+    }
+
+    return render(request, "league/yfinance.html", context)
