@@ -263,7 +263,17 @@ def yfinance(request):
     data = stock.history(period="1d")
     print(f"yf data : {data}")
     current_price = data["Close"].iloc[-1]
-    # print(f"yf current_pric : {current_price}")
+    # break
+    #data =  yf.Ticker("SEIC")
+    # print(data.info)
+    #print(data.quarterly_income_stmt)
+    spy = yf.Ticker('SPY').funds_data
+    print(f"spy is rendering :  {spy.description}")
+    print(f"spy is top holdings :  {spy.top_holdings}")
+    #some of my fav stocks
+    fav_stock_tickers = yf.Tickers("AMZN BTU CAT DAL TTWO UBS")
+    print(fav_stock_tickers.tickers['AMZN'].info)
+    # print(f"my fav stocks: {fav_stock_tickers.description}")
 
     # Prepare context for template
     context = {
