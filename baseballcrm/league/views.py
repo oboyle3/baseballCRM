@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from .models import Team, Player ,Minor, Prospect,Gaa_Team, News, Conference, NCAA_TEAM, NCAA_Player, Stock
+from .models import Team, Player ,Minor, Prospect,Gaa_Team, News, Conference, NCAA_TEAM, NCAA_Player, Stock, Tracker
 from .forms import Stockform
 import pandas as pd
 from django.shortcuts import render
@@ -282,3 +282,13 @@ def yfinance(request):
     }
 
     return render(request, "league/yfinance.html", context)
+
+
+def Tracker(request):
+    x = 1
+    context = {    
+        "x":x,
+        
+        
+    }
+    return render(request, "league/tracker.html",context )
