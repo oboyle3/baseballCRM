@@ -165,3 +165,46 @@ class Event(models.Model):
 class EventDate(models.Model):
     event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='dates')
     date = models.DateField()
+
+class All_Player(models.Model):
+    name = models.CharField(max_length=100)
+    POSITIONS = [
+        
+        ("C", "Catcher"),
+        ("1B", "First Base"),
+        ("2B", "Second Base"),
+        ("3B", "Third Base"),
+        ("SS", "Shortstop"),
+        ("LF", "Left Field"),
+        ("CF", "Center Field"),
+        ("RF", "Right Field"),
+        ("DH", "Designated Hitter"),
+    ]
+    position = models.CharField(max_length=2,choices=POSITIONS)
+    TEAM = [
+        
+        ("Yanks", "Yankees"),
+        ("Phil", "Phillies"),
+        
+    ]
+    def __str__(self):
+        return f"{self.name}"
+
+class Game(models.Model):
+    date = models.DateField()
+    opponent = models.CharField(max_length=100)
+
+    def __str__(self):
+        return f"{self.date} vs {self.opponent}"
+    
+class PlayerGameStat(models.Model):
+    player = models.ForeignKey(All_Player, on_delete=models.CASCADE)
+    game = models.ForeignKey(Game, on_delete=models.CASCADE)
+
+    
+    ba = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+
+    
+
+    def __str__(self):
+        return f"{self.player.name} - {self.game}"
