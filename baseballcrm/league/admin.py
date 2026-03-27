@@ -15,9 +15,9 @@ admin.site.register(NCAA_Player)
 admin.site.register(Stock)
 admin.site.register(Event)
 admin.site.register(EventDate)
-admin.site.register(PlayerGameStat),
+admin.site.register(PlayerGameStat)
 admin.site.register(Game)
-admin.site.register( All_Player)
+admin.site.register(All_Player)
 
 
 
