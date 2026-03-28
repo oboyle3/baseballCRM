@@ -190,7 +190,7 @@ class All_Player(models.Model):
     def __str__(self):
         return f"{self.name}"
 
-class Game(models.Model):
+class Game(models.Model):# PlayerGameStat Game   All_Player
     date = models.DateField()
     opponent = models.CharField(max_length=100)
 

@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from .models import Team, Player ,Minor, Prospect,Gaa_Team, News, Conference, NCAA_TEAM, NCAA_Player, Stock, Tracker
+from .models import Team, Player ,Minor, Prospect,Gaa_Team, News, Conference, NCAA_TEAM, NCAA_Player, Stock, Tracker,  PlayerGameStat, Game,   All_Player
 from .forms import Stockform
 import pandas as pd
 from django.shortcuts import render
@@ -292,3 +292,19 @@ def Tracker(request):
         
     }
     return render(request, "league/tracker.html",context )
+
+
+def some_baseball(request):
+    playerGameStat = PlayerGameStat.objects.all()
+    game = Game.objects.all()
+    all_player = All_Player.objects.all()
+    
+    # PlayerGameStat Game   All_Player
+    context = {
+        "playerGameStat": PlayerGameStat,
+        "game":game,
+        "all_player": All_Player,
+        
+   
+    }
+    return render(request, "league/yankeesbaseball.html",context )

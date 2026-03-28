@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import landing, hello_post, add_team, player_comparison, gaa_comp,upload_excel, upload_portfolio, yfinance
+from .views import landing, hello_post, add_team, player_comparison, gaa_comp,upload_excel, upload_portfolio, yfinance, some_baseball
 
 urlpatterns = [
     path("", landing, name="landing"),
@@ -11,4 +11,5 @@ urlpatterns = [
     path("upload_excel/", views.upload_excel, name="upload_excel"),
     path("upload_portfolio/", views.upload_portfolio, name="upload_portfolio"),
     path("yfinance/", views.yfinance, name="yfinance"),
+    path("some_baseball/", views.some_baseball, name="some_baseball"),
 ]
