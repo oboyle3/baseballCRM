@@ -1,0 +1,6 @@
+matplotlib data path: C:\Users\patri\baseball_crm\venv\Lib\site-packages\matplotlib\mpl-data
+CONFIGDIR=C:\Users\patri\.matplotlib
+interactive is False
+platform is win32
+CACHEDIR=C:\Users\patri\.matplotlib
+Using fontManager instance from C:\Users\patri\.matplotlib\fontlist-v390.json

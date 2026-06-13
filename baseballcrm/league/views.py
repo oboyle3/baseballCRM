@@ -1,15 +1,20 @@
 from django.shortcuts import redirect, render
+import requests
 from .models import Team, Player ,Minor, Prospect,Gaa_Team, News, Conference, NCAA_TEAM, NCAA_Player, Stock, Tracker,  PlayerGameStat, Game,   All_Player
 from .forms import Stockform
 import pandas as pd
 from django.shortcuts import render
 import pandas as pd
-import matplotlib.pyplot as plt
+
 from django.shortcuts import render
 from .forms import UploadFileForm
 import numpy as np
 import os
-import yfinance as yf
+
+import logging
+
+
+logger = logging.getLogger(__name__)
 # Create your views here.
 def landing(request):
     teams = Team.objects.all()
@@ -191,7 +196,7 @@ def upload_excel(request):
 
 
 import pandas as pd
-import matplotlib.pyplot as plt
+
 from django.shortcuts import render
 from .forms import UploadFileForm
 
@@ -298,6 +303,12 @@ def some_baseball(request):
     playerGameStat = PlayerGameStat.objects.all()
     game = Game.objects.all()
     all_player = All_Player.objects.all()
+    # logger.info("accessedsome baseball function")
+    # logger.error("Database failed")
+    r = requests.get("https://api.github.com")
+    print(r.status_code)
+    
+
     
     # PlayerGameStat Game   All_Player
     context = {

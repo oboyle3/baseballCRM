@@ -1,0 +1,157 @@
+Watching for file changes with StatReloader
+matplotlib data path: C:\Users\patri\baseball_crm\venv\Lib\site-packages\matplotlib\mpl-data
+CONFIGDIR=C:\Users\patri\.matplotlib
+interactive is False
+platform is win32
+CACHEDIR=C:\Users\patri\.matplotlib
+Using fontManager instance from C:\Users\patri\.matplotlib\fontlist-v390.json
+accessedsome baseball function
+Database failed
+C:\Users\patri\baseball_crm\baseballcrm\league\views.py changed, reloading.
+Watching for file changes with StatReloader
+matplotlib data path: C:\Users\patri\baseball_crm\venv\Lib\site-packages\matplotlib\mpl-data
+CONFIGDIR=C:\Users\patri\.matplotlib
+interactive is False
+platform is win32
+CACHEDIR=C:\Users\patri\.matplotlib
+Using fontManager instance from C:\Users\patri\.matplotlib\fontlist-v390.json
+Watching for file changes with StatReloader
+matplotlib data path: C:\Users\patri\baseball_crm\venv\Lib\site-packages\matplotlib\mpl-data
+CONFIGDIR=C:\Users\patri\.matplotlib
+interactive is False
+platform is win32
+CACHEDIR=C:\Users\patri\.matplotlib
+Using fontManager instance from C:\Users\patri\.matplotlib\fontlist-v390.json
+accessedsome baseball function
+Database failed
+Internal Server Error: /some_baseball/
+Traceback (most recent call last):
+  File "C:\Users\patri\baseball_crm\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\patri\baseball_crm\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\patri\baseball_crm\baseballcrm\league\views.py", line 307, in some_baseball
+    r = requests.get("https://api.github.com")
+        ^^^^^^^^
+NameError: name 'requests' is not defined. Did you mean: 'request'?
+C:\Users\patri\baseball_crm\baseballcrm\league\views.py changed, reloading.
+Watching for file changes with StatReloader
+matplotlib data path: C:\Users\patri\baseball_crm\venv\Lib\site-packages\matplotlib\mpl-data
+CONFIGDIR=C:\Users\patri\.matplotlib
+interactive is False
+platform is win32
+CACHEDIR=C:\Users\patri\.matplotlib
+Using fontManager instance from C:\Users\patri\.matplotlib\fontlist-v390.json
+accessedsome baseball function
+Database failed
+Starting new HTTPS connection (1): api.github.com:443
+https://api.github.com:443 "GET / HTTP/1.1" 200 510
+accessedsome baseball function
+Database failed
+Starting new HTTPS connection (1): api.github.com:443
+https://api.github.com:443 "GET / HTTP/1.1" 200 510
+C:\Users\patri\baseball_crm\baseballcrm\league\views.py changed, reloading.
+Watching for file changes with StatReloader
+matplotlib data path: C:\Users\patri\baseball_crm\venv\Lib\site-packages\matplotlib\mpl-data
+CONFIGDIR=C:\Users\patri\.matplotlib
+interactive is False
+platform is win32
+CACHEDIR=C:\Users\patri\.matplotlib
+Using fontManager instance from C:\Users\patri\.matplotlib\fontlist-v390.json
+C:\Users\patri\baseball_crm\baseballcrm\league\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\patri\baseball_crm\baseballcrm\league\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\patri\baseball_crm\baseballcrm\league\views.py changed, reloading.
+Watching for file changes with StatReloader
+matplotlib data path: C:\Users\patri\baseball_crm\venv\Lib\site-packages\matplotlib\mpl-data
+CONFIGDIR=C:\Users\patri\.matplotlib
+interactive is False
+platform is win32
+CACHEDIR=C:\Users\patri\.matplotlib
+Using fontManager instance from C:\Users\patri\.matplotlib\fontlist-v390.json
+accessedsome baseball function
+Database failed
+Starting new HTTPS connection (1): api.github.com:443
+accessedsome baseball function
+Database failed
+Starting new HTTPS connection (1): api.github.com:443
+accessedsome baseball function
+Database failed
+Starting new HTTPS connection (1): api.github.com:443
+https://api.github.com:443 "GET / HTTP/1.1" 200 530
+https://api.github.com:443 "GET / HTTP/1.1" 200 530
+https://api.github.com:443 "GET / HTTP/1.1" 200 530
+Internal Server Error: /some_baseball/
+Traceback (most recent call last):
+  File "C:\Users\patri\baseball_crm\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\patri\baseball_crm\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\patri\baseball_crm\baseballcrm\league\views.py", line 311, in some_baseball
+    t = turtle.Turtle()
+  File "C:\Users\patri\AppData\Local\Programs\Python\Python313\Lib\turtle.py", line 3845, in __init__
+    RawTurtle.__init__(self, Turtle._screen,
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+                       shape=shape,
+                       ^^^^^^^^^^^^
+                       undobuffersize=undobuffersize,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       visible=visible)
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\patri\AppData\Local\Programs\Python\Python313\Lib\turtle.py", line 2548, in __init__
+    TNavigator.__init__(self, screen.mode())
+                              ~~~~~~~~~~~^^
+  File "C:\Users\patri\AppData\Local\Programs\Python\Python313\Lib\turtle.py", line 1048, in mode
+    return self._mode
+           ^^^^^^^^^^
+AttributeError: '_Screen' object has no attribute '_mode'. Did you mean: 'mode'?
+Internal Server Error: /some_baseball/
+Traceback (most recent call last):
+  File "C:\Users\patri\baseball_crm\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\patri\baseball_crm\venv\Lib\site-packages\django\core\handlers\base.py", line 198, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\patri\baseball_crm\baseballcrm\league\views.py", line 311, in some_baseball
+    t = turtle.Turtle()
+  File "C:\Users\patri\AppData\Local\Programs\Python\Python313\Lib\turtle.py", line 3845, in __init__
+    RawTurtle.__init__(self, Turtle._screen,
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+                       shape=shape,
+                       ^^^^^^^^^^^^
+                       undobuffersize=undobuffersize,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                       visible=visible)
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\patri\AppData\Local\Programs\Python\Python313\Lib\turtle.py", line 2548, in __init__
+    TNavigator.__init__(self, screen.mode())
+                              ~~~~~~~~~~~^^
+  File "C:\Users\patri\AppData\Local\Programs\Python\Python313\Lib\turtle.py", line 1048, in mode
+    return self._mode
+           ^^^^^^^^^^
+AttributeError: '_Screen' object has no attribute '_mode'. Did you mean: 'mode'?
+C:\Users\patri\baseball_crm\baseballcrm\league\views.py changed, reloading.
+Watching for file changes with StatReloader
+matplotlib data path: C:\Users\patri\baseball_crm\venv\Lib\site-packages\matplotlib\mpl-data
+CONFIGDIR=C:\Users\patri\.matplotlib
+interactive is False
+platform is win32
+CACHEDIR=C:\Users\patri\.matplotlib
+Using fontManager instance from C:\Users\patri\.matplotlib\fontlist-v390.json
+accessedsome baseball function
+Database failed
+Starting new HTTPS connection (1): api.github.com:443
+https://api.github.com:443 "GET / HTTP/1.1" 200 510
+Watching for file changes with StatReloader
+C:\Users\patri\baseball_crm\baseballcrm\league\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+C:\Users\patri\baseball_crm\baseballcrm\league\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\patri\baseball_crm\baseballcrm\league\views.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\patri\baseball_crm\baseballcrm\league\views.py changed, reloading.
+Watching for file changes with StatReloader
+Starting new HTTPS connection (1): api.github.com:443
+https://api.github.com:443 "GET / HTTP/1.1" 200 510
