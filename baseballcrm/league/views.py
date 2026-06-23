@@ -268,10 +268,7 @@ def yfinance(request):
     data = stock.history(period="1d")
     print(f"yf data : {data}")
     current_price = data["Close"].iloc[-1]
-    # break
-    #data =  yf.Ticker("SEIC")
-    # print(data.info)
-    #print(data.quarterly_income_stmt)
+    
     spy = yf.Ticker('SPY').funds_data
     print(f"spy is rendering :  {spy.description}")
     print(f"spy is top holdings :  {spy.top_holdings}")
